@@ -21,13 +21,17 @@ const app = express();
 // Que acepte cookies
 app.use(cookieParser());
 
+
+app.use(express.json());
+
+
 // Definir las rutas de las funciones que tendrá la página web
-app.use("/api/products", validateAuthToken(["admin"]), productsRoutes);
+app.use("/api/products", validateAuthToken(["Admin"]), productsRoutes);
 app.use("/api/customers", customersRoutes);
 app.use("/api/employee", employeeRoutes);
 app.use("/api/branches", branchesRoutes);
 app.use("/api/reviews", reviewsRoutes);
-b;
+
 
 app.use("/api/registerEmployees", registerEmployeesRoutes);
 app.use("/api/login", loginRoutes);
@@ -42,3 +46,5 @@ app.use("/api/sales", salesRoutes);
 
 // Exporto la constante para poder usar express en otros archivos
 export default app;
+
+
